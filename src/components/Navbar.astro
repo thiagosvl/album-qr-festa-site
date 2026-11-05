@@ -49,7 +49,7 @@ const linkWhatsapp = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.GERAL);
         {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
       </a>
 
-      <details class="group relative lg:hidden">
+      <details class="group relative lg:hidden" data-menu-mobile>
         <summary
           class="grid h-11 w-11 cursor-pointer list-none place-items-center rounded-full bg-white ring-1 ring-ameixa/15"
           aria-label="Abrir menu"
@@ -78,3 +78,28 @@ const linkWhatsapp = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.GERAL);
     </div>
   </div>
 </header>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>("[data-menu-mobile]");
+
+  if (menu) {
+    const fechar = (): void => {
+      menu.open = false;
+    };
+
+    menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", fechar));
+
+    document.addEventListener("click", (evento) => {
+      if (menu.open && evento.target instanceof Node && !menu.contains(evento.target)) {
+        fechar();
+      }
+    });
+
+    document.addEventListener("keydown", (evento) => {
+      if (evento.key === "Escape" && menu.open) {
+        fechar();
+        menu.querySelector("summary")?.focus();
+      }
+    });
+  }
+</script>
