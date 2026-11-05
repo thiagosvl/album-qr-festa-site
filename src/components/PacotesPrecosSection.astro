@@ -27,7 +27,7 @@ function listarBeneficios(pacote: CatalogoPacoteB2c): string[] {
     pacote.inclui_qr_tematico
       ? "Arte do QR Code de mesa no tema da festa"
       : "QR Code pronto para imprimir",
-    ...(pacote.inclui_telao ? ["Telão ao vivo com slideshow em tela cheia"] : []),
+    ...(pacote.inclui_telao ? ["Telão ao vivo: as fotos passam em tela cheia"] : []),
   ];
 }
 ---

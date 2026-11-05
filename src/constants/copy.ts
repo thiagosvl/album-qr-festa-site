@@ -39,7 +39,7 @@ export const COMPARATIVO_LINHAS: readonly ComparativoLinha[] = [
     criterio: "Qualidade da foto",
     grupoWhatsapp: { valor: ComparativoValor.PARCIAL, texto: "O WhatsApp comprime" },
     fotografo: { valor: ComparativoValor.SIM, texto: "Profissional" },
-    album: { valor: ComparativoValor.SIM, texto: "Boa, em 1080×1920" },
+    album: { valor: ComparativoValor.SIM, texto: "Boa, feita para o celular" },
   },
   {
     criterio: "Você baixa tudo de uma vez",
@@ -94,7 +94,7 @@ export const PERGUNTAS: readonly Pergunta[] = [
   {
     pergunta: "Os convidados precisam instalar app ou fazer cadastro?",
     resposta:
-      "Não. Basta abrir a câmera do celular e apontar para o QR Code. A câmera com as molduras abre direto no navegador, no iPhone e no Android.",
+      "Não. Basta abrir a câmera do celular e apontar para o QR Code. A câmera com as molduras abre direto no celular, no iPhone e no Android, sem baixar nada.",
   },
   {
     pergunta: "E quem quer tirar uma foto normal, sem moldura?",
@@ -119,7 +119,7 @@ export const PERGUNTAS: readonly Pergunta[] = [
   {
     pergunta: "Como funciona o telão?",
     resposta:
-      "No pacote Completo você recebe um link do telão. Abra no navegador da TV ou do notebook ligado ao projetor, e as fotos dos convidados entram sozinhas, em tela cheia.",
+      "No pacote Completo você recebe um link do telão. Abra o link na TV ou no notebook ligado ao projetor, e as fotos dos convidados entram sozinhas, em tela cheia.",
   },
   {
     pergunta: "Por quanto tempo o álbum fica no ar?",
@@ -140,7 +140,7 @@ export interface Recurso {
 export const RECURSO_TELAO: Recurso = {
   titulo: "Telão ao vivo",
   descricao:
-    "Abra o link na TV ou no projetor do salão. As fotos entram sozinhas e viram um slideshow em tela cheia.",
+    "Abra o link na TV ou no projetor do salão. As fotos entram sozinhas e passam em tela cheia, uma depois da outra.",
 };
 
 export const RECURSO_PAINEL: Recurso = {
