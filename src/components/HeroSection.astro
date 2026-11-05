@@ -1,5 +1,5 @@
 ---
-import { Smartphone, ShieldCheck, Camera } from "lucide-astro";
+import { Smartphone, ShieldCheck, Eye } from "lucide-astro";
 import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
 import HeroStage from "@/components/HeroStage.astro";
 import {
@@ -41,39 +41,19 @@ const garantias = [
           Cada convidado escaneia o QR Code, escolhe a moldura do tema e envia. A foto aparece na hora no mural da festa e, no pacote Completo, também no telão.
         </p>
 
-        <a
-          href={linkWhatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="botao-whatsapp mt-5 w-full sm:w-auto lg:hidden"
-        >
-          <WhatsAppIcon />
-          {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
-        </a>
-
-        <div class="mt-8 hidden gap-3 lg:flex">
+        <div class="mt-5 flex flex-col gap-3 sm:flex-row lg:mt-8">
           <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" class="botao-whatsapp">
             <WhatsAppIcon />
             {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
           </a>
           <a href={SITE_LINKS.DEMO_CONVIDADO} target="_blank" rel="noopener noreferrer" class="botao-claro">
-            <Camera class="h-5 w-5" />
-            {ROTULOS_BOTAO.TESTAR_CAMERA}
+            <Eye class="h-5 w-5" />
+            {ROTULOS_BOTAO.VER_DEMONSTRACAO}
           </a>
         </div>
       </div>
 
       <div class="order-3 max-w-xl lg:mt-8">
-        <a
-          href={SITE_LINKS.DEMO_CONVIDADO}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="botao-claro w-full sm:w-auto lg:hidden"
-        >
-          <Camera class="h-5 w-5" />
-          {ROTULOS_BOTAO.TESTAR_CAMERA}
-        </a>
-
         <ul class="mt-6 space-y-3 text-[15px] text-ameixa-suave lg:mt-0">
           {garantias.map(({ Icone, texto }) => (
             <li class="flex items-start gap-3">

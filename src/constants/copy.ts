@@ -169,7 +169,7 @@ export const RECURSO_SEM_LIMITE: Recurso = {
 
 export const ROTULOS_BOTAO = {
   QUERO_PARA_MINHA_FESTA: "Quero para minha festa",
-  TESTAR_CAMERA: "Testar a câmera",
+  VER_DEMONSTRACAO: "Ver a demonstração",
   VER_TELAO: "Ver o telão",
   FALAR_PARCERIA: "Falar sobre parceria",
 } as const;
