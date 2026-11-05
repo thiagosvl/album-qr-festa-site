@@ -45,7 +45,7 @@ export const COMPARATIVO_LINHAS: readonly ComparativoLinha[] = [
     criterio: "Você baixa tudo de uma vez",
     grupoWhatsapp: { valor: ComparativoValor.NAO, texto: "Foto por foto" },
     fotografo: { valor: ComparativoValor.PARCIAL, texto: "Depende da entrega" },
-    album: { valor: ComparativoValor.SIM, texto: "Um arquivo ZIP" },
+    album: { valor: ComparativoValor.SIM, texto: "Botão “Baixar tudo”" },
   },
   {
     criterio: "Você decide o que fica à vista",
@@ -74,7 +74,7 @@ export const PASSOS: readonly Passo[] = [
   {
     titulo: "Na festa, os convidados escaneiam e fotografam",
     descricao:
-      "As fotos entram no mural na hora, e no telão se você escolheu o pacote Completo. Depois da festa, baixe tudo em um ZIP.",
+      "As fotos entram no mural na hora, e no telão se você escolheu o pacote Completo. Depois da festa, é só tocar em “Baixar tudo” e as fotos vão para o seu celular ou computador.",
   },
 ];
 
@@ -124,7 +124,7 @@ export const PERGUNTAS: readonly Pergunta[] = [
   {
     pergunta: "Por quanto tempo o álbum fica no ar?",
     resposta:
-      "Os dois pacotes incluem 90 dias de galeria com download. Dá para estender por mais um ano como adicional.",
+      "Os dois pacotes incluem 90 dias de galeria no ar. Nesse período você pode baixar todas as fotos de uma vez, quando quiser. Dá para estender por mais um ano como adicional.",
   },
   {
     pergunta: "Também recebe vídeo?",

@@ -1,5 +1,5 @@
 ---
-import { Check, Minus, X } from "lucide-astro";
+import { Check, Minus, MoveHorizontal, X } from "lucide-astro";
 import { SECTION_IDS } from "@/constants/site.config";
 import {
   COMPARATIVO_LINHAS,
@@ -37,36 +37,40 @@ const colunas = [
       </p>
     </div>
 
-    <div class="mt-12 overflow-hidden rounded-card ring-1 ring-ameixa/10">
-      <div class="hidden grid-cols-[1.25fr_1fr_1fr_1.2fr] bg-ameixa/[0.04] text-sm font-semibold md:grid">
-        <div class="px-6 py-4"></div>
-        {colunas.map((coluna) => (
-          <div class={`px-6 py-4 ${coluna.destaque ? "bg-uva-claro text-uva-profundo" : "text-ameixa-suave"}`}>
-            {coluna.rotulo}
+    <p class="mt-8 flex items-center gap-2 text-sm font-semibold text-uva md:hidden">
+      <MoveHorizontal class="h-4 w-4" />
+      Deslize a tabela para o lado
+    </p>
+
+    <div class="mt-3 overflow-x-auto rounded-card ring-1 ring-ameixa/10 md:mt-12">
+      <div class="min-w-[760px]">
+        <div class="grid grid-cols-[1.25fr_1fr_1fr_1.2fr] bg-ameixa/[0.04] text-sm font-semibold">
+          <div class="px-6 py-4"></div>
+          {colunas.map((coluna) => (
+            <div class={`px-6 py-4 ${coluna.destaque ? "bg-uva-claro text-uva-profundo" : "text-ameixa-suave"}`}>
+              {coluna.rotulo}
+            </div>
+          ))}
+        </div>
+
+        {COMPARATIVO_LINHAS.map((linha) => (
+          <div class="grid grid-cols-[1.25fr_1fr_1fr_1.2fr] border-t border-ameixa/10">
+            <div class="px-6 py-5 text-[16px] font-semibold">{linha.criterio}</div>
+            {colunas.map((coluna) => {
+              const celula: ComparativoCelula = linha[coluna.chave];
+              const Icone = iconePorValor[celula.valor];
+              return (
+                <div class={`flex items-center gap-3 px-6 py-5 ${coluna.destaque ? "bg-uva-claro/60" : ""}`}>
+                  <span class={`grid h-6 w-6 shrink-0 place-items-center rounded-full ${estiloPorValor[celula.valor]}`}>
+                    <Icone class="h-3.5 w-3.5" />
+                  </span>
+                  <span class="text-[15px]">{celula.texto}</span>
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
-
-      {COMPARATIVO_LINHAS.map((linha) => (
-        <div class="grid border-t border-ameixa/10 md:grid-cols-[1.25fr_1fr_1fr_1.2fr]">
-          <div class="px-6 pb-2 pt-5 text-[17px] font-semibold md:py-5">{linha.criterio}</div>
-          {colunas.map((coluna) => {
-            const celula: ComparativoCelula = linha[coluna.chave];
-            const Icone = iconePorValor[celula.valor];
-            return (
-              <div class={`flex items-center gap-3 px-6 py-2 md:py-5 ${coluna.destaque ? "bg-uva-claro/60 pb-5 md:pb-5" : ""}`}>
-                <span class={`grid h-6 w-6 shrink-0 place-items-center rounded-full ${estiloPorValor[celula.valor]}`}>
-                  <Icone class="h-3.5 w-3.5" />
-                </span>
-                <span class="text-[15px]">
-                  <span class="mr-1 text-ameixa-suave md:hidden">{coluna.rotulo}:</span>
-                  {celula.texto}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      ))}
     </div>
 
     <p class="mt-6 max-w-2xl text-[15px] text-ameixa-suave">
