@@ -19,6 +19,7 @@ interface Props {
 
 const { temas } = Astro.props;
 const linkSobMedida = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.TEMA_SOB_MEDIDA);
+import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
 ---
 
 <section id={SECTION_IDS.TEMAS} class="py-20 sm:py-28">
@@ -59,6 +60,10 @@ const linkSobMedida = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.TEMA_SOB_MEDIDA);
           <span class="font-display text-2xl font-extrabold leading-tight">Seu tema não está aqui?</span>
           <span class="text-[15px] leading-relaxed text-ameixa-suave">
             Criamos a moldura do jeito que você imaginou. Chame no WhatsApp e mande a ideia.
+          </span>
+          <span class="botao-whatsapp h-11 w-full px-4 text-sm">
+            <WhatsAppIcon class="h-4 w-4" />
+            Chamar no WhatsApp
           </span>
         </a>
       </li>

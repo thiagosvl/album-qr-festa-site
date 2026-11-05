@@ -1,5 +1,6 @@
 ---
-import { Smartphone, ShieldCheck, Camera, MessageCircle } from "lucide-astro";
+import { Smartphone, ShieldCheck, Camera } from "lucide-astro";
+import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
 import HeroStage from "@/components/HeroStage.astro";
 import {
   SITE_LINKS,
@@ -44,15 +45,15 @@ const garantias = [
           href={linkWhatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          class="botao-escuro mt-5 w-full sm:w-auto lg:hidden"
+          class="botao-whatsapp mt-5 w-full sm:w-auto lg:hidden"
         >
-          <MessageCircle class="h-5 w-5" />
+          <WhatsAppIcon />
           {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
         </a>
 
         <div class="mt-8 hidden gap-3 lg:flex">
-          <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" class="botao-escuro">
-            <MessageCircle class="h-5 w-5" />
+          <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" class="botao-whatsapp">
+            <WhatsAppIcon />
             {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
           </a>
           <a href={SITE_LINKS.DEMO_CONVIDADO} target="_blank" rel="noopener noreferrer" class="botao-claro">

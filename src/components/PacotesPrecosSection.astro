@@ -1,5 +1,6 @@
 ---
 import { Check, Plus } from "lucide-astro";
+import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
 import {
   SECTION_IDS,
   formatarMoedaCentavos,
@@ -87,8 +88,9 @@ function listarBeneficios(pacote: CatalogoPacoteB2c): string[] {
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              class={`botao mt-8 w-full ${completo ? "bg-rosa-vivo text-ameixa" : "bg-ameixa text-white"}`}
+              class="botao-whatsapp mt-8 w-full"
             >
+              <WhatsAppIcon />
               Quero o {pacote.nome_exibicao}
             </a>
           </article>

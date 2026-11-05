@@ -52,6 +52,10 @@
     @apply botao bg-white text-ameixa ring-2 ring-ameixa/15;
   }
 
+  .botao-whatsapp {
+    @apply botao bg-whatsapp text-white hover:bg-whatsapp-escuro;
+  }
+
   .botao-rosa {
     @apply botao bg-rosa-vivo text-ameixa;
   }

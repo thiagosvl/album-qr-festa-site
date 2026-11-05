@@ -1,5 +1,5 @@
 ---
-import { MessageCircle } from "lucide-astro";
+import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
 import {
   SECTION_IDS,
   WHATSAPP_MENSAGENS,
@@ -26,8 +26,8 @@ const linkParceria = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.PARCERIA);
       <p class="mt-5 max-w-md text-[17px] leading-relaxed text-white/75">
         Você assina um plano mensal com créditos, cria o álbum de cada cliente e entrega mais uma lembrança no seu serviço. O álbum usa a cor da sua marca, e a marca Álbum QR Festa aparece num cantinho.
       </p>
-      <a href={linkParceria} target="_blank" rel="noopener noreferrer" class="botao-rosa mt-8">
-        <MessageCircle class="h-5 w-5" />
+      <a href={linkParceria} target="_blank" rel="noopener noreferrer" class="botao-whatsapp mt-8">
+        <WhatsAppIcon />
         {ROTULOS_BOTAO.FALAR_PARCERIA}
       </a>
     </div>

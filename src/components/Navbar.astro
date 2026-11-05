@@ -1,5 +1,6 @@
 ---
 import { Menu } from "lucide-astro";
+import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
 import {
   SECTION_IDS,
   WHATSAPP_MENSAGENS,
@@ -44,8 +45,9 @@ const linkWhatsapp = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.GERAL);
         href={linkWhatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        class="botao-escuro hidden h-11 sm:inline-flex"
+        class="botao-whatsapp hidden h-11 sm:inline-flex"
       >
+        <WhatsAppIcon />
         {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
       </a>
 
@@ -69,8 +71,9 @@ const linkWhatsapp = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.GERAL);
             href={linkWhatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            class="botao-escuro mt-2 w-full"
+            class="botao-whatsapp mt-2 w-full"
           >
+            <WhatsAppIcon />
             {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
           </a>
         </nav>

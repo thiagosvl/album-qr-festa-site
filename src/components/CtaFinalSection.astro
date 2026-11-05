@@ -1,5 +1,6 @@
 ---
-import { Camera, MessageCircle } from "lucide-astro";
+import { Camera } from "lucide-astro";
+import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
 import {
   SITE_LINKS,
   WHATSAPP_MENSAGENS,
@@ -23,8 +24,8 @@ const rotacoes = ["rotate-6", "-rotate-3", "rotate-2"];
       Conte a data e o tema pelo WhatsApp. Em seguida a gente monta as molduras para você aprovar.
     </p>
     <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-      <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" class="botao-escuro">
-        <MessageCircle class="h-5 w-5" />
+      <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" class="botao-whatsapp">
+        <WhatsAppIcon />
         {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
       </a>
       <a href={SITE_LINKS.DEMO_CONVIDADO} target="_blank" rel="noopener noreferrer" class="botao bg-white text-ameixa">

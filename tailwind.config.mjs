@@ -24,6 +24,10 @@ export default {
           DEFAULT: "#1c0f2e",
           suave: "#4b3a63",
         },
+        whatsapp: {
+          DEFAULT: "#25d366",
+          escuro: "#1ebe5a",
+        },
         algodao: "#ffe4f0",
         uva: {
           DEFAULT: "#7c3aed",
