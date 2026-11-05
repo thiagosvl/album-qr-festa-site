@@ -30,42 +30,68 @@ const garantias = [
 ---
 
 <section class="overflow-hidden bg-algodao">
-  <div class="container grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_600px] lg:gap-8 lg:py-20">
-    <div class="max-w-xl">
-      <h1 class="text-[40px] font-extrabold leading-[1.02] sm:text-[56px] lg:text-[64px]">
-        Seus convidados tiram as fotos. A festa inteira vê na hora.
-      </h1>
-      <p class="mt-6 max-w-[34rem] text-[17px] leading-relaxed text-ameixa-suave sm:text-lg">
-        Cada convidado escaneia o QR Code da mesa, escolhe a moldura do tema e envia. A foto entra no mural e no telão enquanto a festa acontece.
-      </p>
+  <div class="container flex flex-col gap-6 py-7 sm:py-12 lg:grid lg:grid-cols-[minmax(0,1fr)_600px] lg:items-center lg:gap-8 lg:py-20">
+    <div class="contents lg:block">
+      <div class="order-1 max-w-xl">
+        <h1 class="text-[clamp(28px,8.6vw,40px)] font-extrabold leading-[1.04] sm:text-[52px] lg:text-[64px] lg:leading-[1.02]">
+          Seus convidados tiram as fotos. A festa inteira vê na hora.
+        </h1>
+        <p class="mt-3 max-w-[34rem] text-[15px] leading-snug text-ameixa-suave sm:mt-6 sm:text-lg sm:leading-relaxed">
+          Cada convidado escaneia o QR Code, escolhe a moldura do tema e envia. A foto aparece no mural e no telão na hora.
+        </p>
 
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" class="botao-escuro">
+        <a
+          href={linkWhatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="botao-escuro mt-5 w-full sm:w-auto lg:hidden"
+        >
           <MessageCircle class="h-5 w-5" />
           {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
         </a>
-        <a href={SITE_LINKS.DEMO_CONVIDADO} target="_blank" rel="noopener noreferrer" class="botao-claro">
+
+        <div class="mt-8 hidden gap-3 lg:flex">
+          <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" class="botao-escuro">
+            <MessageCircle class="h-5 w-5" />
+            {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
+          </a>
+          <a href={SITE_LINKS.DEMO_CONVIDADO} target="_blank" rel="noopener noreferrer" class="botao-claro">
+            <Camera class="h-5 w-5" />
+            {ROTULOS_BOTAO.TESTAR_CAMERA}
+          </a>
+        </div>
+      </div>
+
+      <div class="order-3 max-w-xl lg:mt-8">
+        <a
+          href={SITE_LINKS.DEMO_CONVIDADO}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="botao-claro w-full sm:w-auto lg:hidden"
+        >
           <Camera class="h-5 w-5" />
           {ROTULOS_BOTAO.TESTAR_CAMERA}
         </a>
-      </div>
 
-      <ul class="mt-8 space-y-3 text-[15px] text-ameixa-suave">
-        {garantias.map(({ Icone, texto }) => (
-          <li class="flex items-start gap-3">
-            <Icone class="mt-0.5 h-5 w-5 shrink-0 text-uva" />
-            <span>{texto}</span>
-          </li>
-        ))}
-        {menorPreco !== null && (
-          <li class="flex items-start gap-3">
-            <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-uva text-[11px] font-bold text-white">R$</span>
-            <span>A partir de {formatarMoedaCentavos(menorPreco)} por festa, sem mensalidade</span>
-          </li>
-        )}
-      </ul>
+        <ul class="mt-6 space-y-3 text-[15px] text-ameixa-suave lg:mt-0">
+          {garantias.map(({ Icone, texto }) => (
+            <li class="flex items-start gap-3">
+              <Icone class="mt-0.5 h-5 w-5 shrink-0 text-uva" />
+              <span>{texto}</span>
+            </li>
+          ))}
+          {menorPreco !== null && (
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-uva text-[11px] font-bold text-white">R$</span>
+              <span>A partir de {formatarMoedaCentavos(menorPreco)} por festa, sem mensalidade</span>
+            </li>
+          )}
+        </ul>
+      </div>
     </div>
 
-    <HeroStage />
+    <div class="order-2 lg:order-none">
+      <HeroStage />
+    </div>
   </div>
 </section>
