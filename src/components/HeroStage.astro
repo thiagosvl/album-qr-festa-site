@@ -1,0 +1,141 @@
+---
+import FrameArt from "@/components/FrameArt.astro";
+import CenaSvgSymbol from "@/components/CenaSvgSymbol.astro";
+import { DEMO_TEMAS } from "@/constants/frames";
+import {
+  HERO_STAGE_ATTR,
+  HERO_STAGE_LIMITES,
+  ID_SIMBOLO_CENA,
+} from "@/constants/hero-stage.constants";
+
+const temaInicial = DEMO_TEMAS[0];
+const tilesIniciais = [...DEMO_TEMAS].reverse();
+---
+
+<div
+  data-hero-stage
+  data-temas={JSON.stringify(DEMO_TEMAS)}
+  class="relative mx-auto flex w-full flex-col items-center gap-7 lg:block lg:h-[640px] lg:w-[600px]"
+>
+  <CenaSvgSymbol />
+
+  <div class="relative w-[236px] -rotate-2 sm:w-[256px] lg:absolute lg:left-4 lg:top-0 lg:w-[262px]">
+    <div class="rounded-[40px] bg-ameixa p-2.5 shadow-palco">
+      <div
+        data-viewfinder
+        class="relative aspect-[9/16] overflow-hidden rounded-[30px]"
+        style={`--fa:${temaInicial.corA};--fb:${temaInicial.corB}`}
+      >
+        <svg viewBox="0 0 270 480" class="absolute inset-0 h-full w-full" aria-hidden="true">
+          <use href={`#${ID_SIMBOLO_CENA}`}></use>
+        </svg>
+        <FrameArt
+          herdarCores
+          class="absolute inset-0 h-full w-full"
+          corA={temaInicial.corA}
+          corB={temaInicial.corB}
+          titulo={temaInicial.titulo}
+          legenda={temaInicial.legenda}
+          decor={temaInicial.decor}
+        />
+        <div
+          data-flash
+          class="pointer-events-none absolute inset-0 bg-white opacity-0"
+        >
+        </div>
+      </div>
+      <div class="flex items-center justify-center pb-1 pt-3">
+        <button
+          type="button"
+          data-obturador
+          aria-label="Tirar uma foto de demonstração"
+          class="grid h-14 w-14 place-items-center rounded-full bg-white transition-transform active:scale-90"
+        >
+          <span class="block h-10 w-10 rounded-full bg-rosa-vivo"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    role="group"
+    aria-label="Moldura da demonstração"
+    class="flex max-w-[330px] flex-wrap justify-center gap-2 lg:absolute lg:left-0 lg:top-[580px] lg:w-[290px]"
+  >
+    {
+      DEMO_TEMAS.map((tema, posicao) => (
+        <button
+          type="button"
+          data-chip
+          aria-pressed={posicao === 0 ? "true" : "false"}
+          class="inline-flex h-9 items-center gap-2 rounded-full bg-white px-3.5 text-[13px] font-semibold text-ameixa ring-1 ring-ameixa/15 transition-colors aria-pressed:bg-ameixa aria-pressed:text-white aria-pressed:ring-ameixa"
+        >
+          <span
+            class="h-3 w-3 rounded-full"
+            style={`background:linear-gradient(135deg,${tema.corA} 50%,${tema.corB} 50%)`}
+          />
+          {tema.nome}
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="relative w-full max-w-[340px] rotate-[2deg] lg:absolute lg:right-0 lg:top-[250px]">
+    <div class="rounded-[22px] bg-ameixa p-3 shadow-palco">
+      <div class="mb-2.5 flex items-center justify-between px-0.5 text-white">
+        <span class="inline-flex items-center gap-2 text-[13px] font-semibold">
+          <span class="h-2 w-2 rounded-full bg-rosa-vivo motion-safe:animate-piscar"></span>
+          Telão ao vivo
+        </span>
+        <span class="text-[13px] text-white/70">
+          <span data-contador>{HERO_STAGE_LIMITES.FOTOS_INICIAIS}</span> fotos
+        </span>
+      </div>
+      <div data-mural class="grid grid-cols-4 gap-2">
+        {
+          tilesIniciais.map((tema) => (
+            <div
+              class="relative aspect-[9/16] overflow-hidden rounded-lg"
+              style={`--fa:${tema.corA};--fb:${tema.corB};border:3px solid var(--fa)`}
+            >
+              <svg viewBox="0 0 270 480" class="h-full w-full" aria-hidden="true">
+                <use href={`#${ID_SIMBOLO_CENA}`} />
+              </svg>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="mx-auto h-3 w-20 rounded-b-xl bg-ameixa/90"></div>
+  </div>
+
+  <template data-tile-molde>
+    <div
+      class="relative aspect-[9/16] overflow-hidden rounded-lg"
+      style="border:3px solid var(--fa)"
+    >
+      <svg viewBox="0 0 270 480" class="h-full w-full" aria-hidden="true">
+        <use href={`#${ID_SIMBOLO_CENA}`}></use>
+      </svg>
+    </div>
+  </template>
+
+  <p class="sr-only" aria-live="polite" data-anuncio></p>
+
+  <p
+    class="pointer-events-none absolute left-[292px] top-[18px] hidden w-[170px] -rotate-3 font-nota text-[26px] leading-6 text-ameixa lg:block"
+    aria-hidden="true"
+  >
+    o convidado escolhe a moldura
+  </p>
+  <p
+    class="pointer-events-none absolute right-[60px] top-[196px] hidden w-[220px] rotate-2 font-nota text-[26px] leading-6 text-ameixa lg:block"
+    aria-hidden="true"
+  >
+    e a foto aparece aqui, na hora
+  </p>
+</div>
+
+<script>
+  import "@/scripts/hero-stage";
+</script>

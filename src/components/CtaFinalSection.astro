@@ -1,0 +1,49 @@
+---
+import { Camera, MessageCircle } from "lucide-astro";
+import {
+  SITE_LINKS,
+  WHATSAPP_MENSAGENS,
+  gerarLinkWhatsapp,
+} from "@/constants/site.config";
+import { ROTULOS_BOTAO } from "@/constants/copy";
+import MiniMoldura from "@/components/MiniMoldura.astro";
+import { DEMO_TEMAS } from "@/constants/frames";
+
+const linkWhatsapp = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.GERAL);
+const rotacoes = ["rotate-6", "-rotate-3", "rotate-2"];
+---
+
+<section class="pb-20 sm:pb-28">
+  <div class="container">
+  <div class="relative overflow-hidden rounded-[36px] bg-rosa-vivo px-7 py-14 sm:px-14 sm:py-20">
+    <h2 class="max-w-3xl text-[36px] font-extrabold leading-[1.02] text-ameixa sm:text-6xl">
+      Sua festa merece um álbum de verdade.
+    </h2>
+    <p class="mt-5 max-w-xl text-[17px] leading-relaxed text-ameixa/80">
+      Conte a data e o tema pelo WhatsApp. Em seguida a gente monta as molduras para você aprovar.
+    </p>
+    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+      <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" class="botao-escuro">
+        <MessageCircle class="h-5 w-5" />
+        {ROTULOS_BOTAO.QUERO_PARA_MINHA_FESTA}
+      </a>
+      <a href={SITE_LINKS.DEMO_CONVIDADO} target="_blank" rel="noopener noreferrer" class="botao bg-white text-ameixa">
+        <Camera class="h-5 w-5" />
+        {ROTULOS_BOTAO.TESTAR_CAMERA}
+      </a>
+    </div>
+    <div class="pointer-events-none absolute -bottom-16 right-10 hidden gap-4 lg:flex" aria-hidden="true">
+      {DEMO_TEMAS.slice(1).map((tema, posicao) => (
+        <MiniMoldura
+          class={`w-32 ${rotacoes[posicao]}`}
+          corA={tema.corA}
+          corB={tema.corB}
+          titulo={tema.titulo}
+          legenda={tema.legenda}
+          decor={tema.decor}
+        />
+      ))}
+    </div>
+  </div>
+  </div>
+</section>

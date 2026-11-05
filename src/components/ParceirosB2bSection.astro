@@ -1,0 +1,69 @@
+---
+import { MessageCircle } from "lucide-astro";
+import {
+  SECTION_IDS,
+  WHATSAPP_MENSAGENS,
+  formatarMoedaCentavos,
+  gerarLinkWhatsapp,
+} from "@/constants/site.config";
+import { ROTULOS_BOTAO } from "@/constants/copy";
+import type { CatalogoPlanoB2b } from "@/types/catalogo.types";
+
+interface Props {
+  planosB2b: CatalogoPlanoB2b[];
+}
+
+const { planosB2b } = Astro.props;
+const linkParceria = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.PARCERIA);
+---
+
+<section id={SECTION_IDS.PARCEIROS} class="bg-ameixa py-20 text-white sm:py-28">
+  <div class="container grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
+    <div>
+      <h2 class="text-[34px] font-extrabold leading-[1.05] sm:text-5xl">
+        Buffet, fotógrafo ou decorador? Ofereça o álbum nas festas que você já atende.
+      </h2>
+      <p class="mt-5 max-w-md text-[17px] leading-relaxed text-white/75">
+        Você assina um plano mensal com créditos, cria o álbum de cada cliente e entrega mais uma lembrança no seu serviço.
+      </p>
+      <a href={linkParceria} target="_blank" rel="noopener noreferrer" class="botao-rosa mt-8">
+        <MessageCircle class="h-5 w-5" />
+        {ROTULOS_BOTAO.FALAR_PARCERIA}
+      </a>
+    </div>
+
+    <div class="space-y-4">
+      {planosB2b.map((plano) => (
+        <article class="rounded-card bg-white/[0.07] p-7 ring-1 ring-white/15">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <h3 class="text-2xl font-bold">{plano.nome}</h3>
+            <p class="font-display text-3xl font-extrabold">
+              {formatarMoedaCentavos(plano.preco_mensal_centavos)}
+              <span class="text-base font-medium text-white/60">/mês</span>
+            </p>
+          </div>
+          {plano.descricao && (
+            <p class="mt-3 text-[15px] leading-relaxed text-white/75">{plano.descricao}</p>
+          )}
+          <dl class="mt-5 grid grid-cols-3 gap-4 border-t border-white/15 pt-5 text-sm">
+            <div>
+              <dt class="text-white/60">Créditos por mês</dt>
+              <dd class="mt-1 font-display text-xl font-bold">{plano.creditos_mensais}</dd>
+            </div>
+            <div>
+              <dt class="text-white/60">Evento Básico</dt>
+              <dd class="mt-1 font-display text-xl font-bold">{plano.custo_creditos_basico} cr.</dd>
+            </div>
+            <div>
+              <dt class="text-white/60">Evento Completo</dt>
+              <dd class="mt-1 font-display text-xl font-bold">{plano.custo_creditos_completo} cr.</dd>
+            </div>
+          </dl>
+          <p class="mt-4 text-sm text-white/60">
+            Crédito extra: {formatarMoedaCentavos(plano.preco_credito_avulso_centavos)} cada.
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

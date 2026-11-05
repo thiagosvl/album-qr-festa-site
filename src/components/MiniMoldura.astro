@@ -1,0 +1,36 @@
+---
+import FrameArt from "@/components/FrameArt.astro";
+import { ID_SIMBOLO_CENA } from "@/constants/hero-stage.constants";
+import type { DecorTipo } from "@/constants/frames";
+
+interface Props {
+  corA: string;
+  corB: string;
+  titulo: string;
+  legenda: string;
+  decor: DecorTipo;
+  class?: string;
+}
+
+const { corA, corB, titulo, legenda, decor, class: classe = "" } = Astro.props;
+---
+
+<div class={`rounded-[28px] bg-ameixa p-2 shadow-suave ${classe}`}>
+  <div
+    class="relative aspect-[9/16] overflow-hidden rounded-[22px] bg-algodao"
+    style={`--fa:${corA};--fb:${corB}`}
+  >
+    <svg viewBox="0 0 270 480" class="absolute inset-0 h-full w-full" aria-hidden="true">
+      <use href={`#${ID_SIMBOLO_CENA}`}></use>
+    </svg>
+    <FrameArt
+      herdarCores
+      class="absolute inset-0 h-full w-full"
+      corA={corA}
+      corB={corB}
+      titulo={titulo}
+      legenda={legenda}
+      decor={decor}
+    />
+  </div>
+</div>

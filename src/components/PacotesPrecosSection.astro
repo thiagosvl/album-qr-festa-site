@@ -1,0 +1,124 @@
+---
+import { Check, Plus } from "lucide-astro";
+import {
+  SECTION_IDS,
+  formatarMoedaCentavos,
+  gerarLinkWhatsapp,
+} from "@/constants/site.config";
+import { FESTA_PACOTE_TIPO } from "@/types/catalogo.types";
+import type {
+  CatalogoExtraB2c,
+  CatalogoPacoteB2c,
+} from "@/types/catalogo.types";
+
+interface Props {
+  pacotes: CatalogoPacoteB2c[];
+  extras: CatalogoExtraB2c[];
+}
+
+const { pacotes, extras } = Astro.props;
+
+function listarBeneficios(pacote: CatalogoPacoteB2c): string[] {
+  return [
+    `${pacote.limite_molduras === 1 ? "1 moldura" : `Até ${pacote.limite_molduras} molduras`} no tema da festa, além da opção “Sem moldura”`,
+    "Convidados e fotos ilimitados",
+    `Galeria no ar por ${pacote.dias_galeria_ativa} dias, com download em ZIP`,
+    "Painel dos pais para esconder fotos e fechar os envios",
+    pacote.inclui_qr_tematico
+      ? "Arte do QR Code de mesa no tema da festa"
+      : "QR Code pronto para imprimir",
+    ...(pacote.inclui_telao ? ["Telão ao vivo com slideshow em tela cheia"] : []),
+  ];
+}
+---
+
+<section id={SECTION_IDS.PRECOS} class="bg-gema py-20 sm:py-28">
+  <div class="container">
+    <div class="max-w-2xl">
+      <h2 class="text-[34px] font-extrabold leading-[1.05] sm:text-5xl">
+        Um preço por festa. Sem mensalidade.
+      </h2>
+      <p class="mt-5 text-[17px] leading-relaxed text-ameixa/80">
+        Você paga 50% por Pix para a gente começar e os outros 50% só depois de aprovar a arte.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {pacotes.map((pacote) => {
+        const completo = pacote.tipo_pacote === FESTA_PACOTE_TIPO.COMPLETO;
+        const sinal = Math.round(pacote.preco_centavos / 2);
+        const link = gerarLinkWhatsapp(
+          `Olá! Quero contratar o ${pacote.nome_exibicao} (${formatarMoedaCentavos(pacote.preco_centavos)}) para a minha festa.`,
+        );
+        return (
+          <article class={`ticket flex flex-col rounded-card p-8 sm:p-9 ${completo ? "bg-ameixa text-white" : "bg-white text-ameixa"}`}>
+            <h3 class="text-3xl font-extrabold">{pacote.nome_exibicao}</h3>
+            {pacote.descricao && (
+              <p class={`mt-2 text-[15px] leading-relaxed ${completo ? "text-white/75" : "text-ameixa-suave"}`}>
+                {pacote.descricao}
+              </p>
+            )}
+
+            <div class="mt-7">
+              {pacote.preco_ancora_centavos && (
+                <p class={`text-sm line-through ${completo ? "text-white/60" : "text-ameixa-suave"}`}>
+                  {formatarMoedaCentavos(pacote.preco_ancora_centavos)}
+                </p>
+              )}
+              <p class="font-display text-[56px] font-extrabold leading-none">
+                {formatarMoedaCentavos(pacote.preco_centavos)}
+              </p>
+              <p class={`mt-2 text-sm ${completo ? "text-white/75" : "text-ameixa-suave"}`}>
+                por festa. Começa com {formatarMoedaCentavos(sinal)} no Pix.
+              </p>
+            </div>
+
+            <ul class="mt-7 space-y-3 text-[15px]">
+              {listarBeneficios(pacote).map((item) => (
+                <li class="flex items-start gap-3">
+                  <Check class={`mt-0.5 h-5 w-5 shrink-0 ${completo ? "text-gema" : "text-uva"}`} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class={`picotado mt-8 ${completo ? "text-white" : "text-ameixa"}`}></div>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`botao mt-8 w-full ${completo ? "bg-rosa-vivo text-ameixa" : "bg-ameixa text-white"}`}
+            >
+              Quero o {pacote.nome_exibicao}
+            </a>
+          </article>
+        );
+      })}
+    </div>
+
+    {extras.length > 0 && (
+      <div class="mt-12 rounded-card bg-white/60 p-7 sm:p-9">
+        <h3 class="flex items-center gap-2 text-2xl font-bold">
+          <Plus class="h-5 w-5" />
+          Adicionais
+        </h3>
+        <p class="mt-1 text-[15px] text-ameixa/75">Peça junto com o pacote, direto no WhatsApp.</p>
+        <ul class="mt-6 grid gap-x-10 gap-y-5 md:grid-cols-2">
+          {extras.map((extra) => (
+            <li class="flex items-start justify-between gap-5 border-t border-ameixa/15 pt-4">
+              <div>
+                <p class="font-semibold">{extra.nome}</p>
+                {extra.descricao && (
+                  <p class="mt-1 text-sm leading-relaxed text-ameixa/70">{extra.descricao}</p>
+                )}
+              </div>
+              <p class="shrink-0 font-display text-lg font-bold">
+                + {formatarMoedaCentavos(extra.preco_centavos)}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+</section>

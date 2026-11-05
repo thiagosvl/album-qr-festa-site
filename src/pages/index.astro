@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import ComparativoSection from "@/components/ComparativoSection.astro";
+import ComoFuncionaSection from "@/components/ComoFuncionaSection.astro";
+import RecursosSection from "@/components/RecursosSection.astro";
+import VitrineTemasSection from "@/components/VitrineTemasSection.astro";
+import PacotesPrecosSection from "@/components/PacotesPrecosSection.astro";
+import ParceirosB2bSection from "@/components/ParceirosB2bSection.astro";
+import FaqSection from "@/components/FaqSection.astro";
+import CtaFinalSection from "@/components/CtaFinalSection.astro";
+import { obterCatalogoSite } from "@/services/catalogo.service";
+
+const catalogo = await obterCatalogoSite();
+---
+
+<BaseLayout>
+  <HeroSection pacotes={catalogo.pacotes_b2c} />
+  <ComparativoSection />
+  <ComoFuncionaSection />
+  <RecursosSection pacotes={catalogo.pacotes_b2c} />
+  <VitrineTemasSection temas={catalogo.temas} />
+  <PacotesPrecosSection
+    pacotes={catalogo.pacotes_b2c}
+    extras={catalogo.extras_b2c}
+  />
+  <ParceirosB2bSection planosB2b={catalogo.planos_b2b} />
+  <FaqSection />
+  <CtaFinalSection />
+</BaseLayout>

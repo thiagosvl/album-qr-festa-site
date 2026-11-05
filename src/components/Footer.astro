@@ -1,0 +1,43 @@
+---
+import {
+  SECTION_IDS,
+  SITE_LINKS,
+  WHATSAPP_MENSAGENS,
+  gerarLinkWhatsapp,
+} from "@/constants/site.config";
+
+const anoAtual = new Date().getFullYear();
+const links = [
+  { rotulo: "Como funciona", href: `#${SECTION_IDS.COMO_FUNCIONA}`, externo: false },
+  { rotulo: "Preços", href: `#${SECTION_IDS.PRECOS}`, externo: false },
+  { rotulo: "Dúvidas", href: `#${SECTION_IDS.DUVIDAS}`, externo: false },
+  { rotulo: "Testar a câmera", href: SITE_LINKS.DEMO_CONVIDADO, externo: true },
+  { rotulo: "Ver o telão", href: SITE_LINKS.DEMO_TELAO, externo: true },
+  {
+    rotulo: "Para parceiros",
+    href: gerarLinkWhatsapp(WHATSAPP_MENSAGENS.PARCERIA),
+    externo: true,
+  },
+];
+---
+
+<footer class="bg-ameixa py-12 text-white/70">
+  <div class="container flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+      <p class="font-display text-2xl font-extrabold text-white">Álbum QR Festa</p>
+      <p class="mt-2 max-w-xs text-sm">As fotos da festa, tiradas por quem estava lá.</p>
+      <p class="mt-6 text-xs text-white/50">© {anoAtual} Álbum QR Festa</p>
+    </div>
+    <nav aria-label="Rodapé" class="flex flex-wrap gap-x-6 gap-y-3 text-sm">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="transition-colors hover:text-white"
+          {...(link.externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {link.rotulo}
+        </a>
+      ))}
+    </nav>
+  </div>
+</footer>
