@@ -9,10 +9,21 @@ interface Props {
   titulo: string;
   legenda: string;
   decor: DecorTipo;
+  thumbUrl?: string | null;
+  molduraPreviewUrl?: string | null;
   class?: string;
 }
 
-const { corA, corB, titulo, legenda, decor, class: classe = "" } = Astro.props;
+const {
+  corA,
+  corB,
+  titulo,
+  legenda,
+  decor,
+  thumbUrl = null,
+  molduraPreviewUrl = null,
+  class: classe = "",
+} = Astro.props;
 ---
 
 <div class={`rounded-[28px] bg-ameixa p-2 shadow-suave ${classe}`}>
@@ -20,17 +31,35 @@ const { corA, corB, titulo, legenda, decor, class: classe = "" } = Astro.props;
     class="relative aspect-[9/16] overflow-hidden rounded-[22px] bg-algodao"
     style={`--fa:${corA};--fb:${corB}`}
   >
-    <svg viewBox="0 0 270 480" class="absolute inset-0 h-full w-full" aria-hidden="true">
-      <use href={`#${ID_SIMBOLO_CENA}`}></use>
-    </svg>
-    <FrameArt
-      herdarCores
-      class="absolute inset-0 h-full w-full"
-      corA={corA}
-      corB={corB}
-      titulo={titulo}
-      legenda={legenda}
-      decor={decor}
-    />
+    {thumbUrl ? (
+      <img
+        src={thumbUrl}
+        alt={titulo}
+        loading="lazy"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+    ) : (
+      <svg viewBox="0 0 270 480" class="absolute inset-0 h-full w-full" aria-hidden="true">
+        <use href={`#${ID_SIMBOLO_CENA}`}></use>
+      </svg>
+    )}
+    {molduraPreviewUrl ? (
+      <img
+        src={molduraPreviewUrl}
+        alt={titulo}
+        loading="lazy"
+        class="pointer-events-none absolute inset-0 h-full w-full object-contain"
+      />
+    ) : (
+      <FrameArt
+        herdarCores
+        class="absolute inset-0 h-full w-full"
+        corA={corA}
+        corB={corB}
+        titulo={titulo}
+        legenda={legenda}
+        decor={decor}
+      />
+    )}
   </div>
 </div>

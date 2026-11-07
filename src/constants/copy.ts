@@ -128,7 +128,8 @@ export const PERGUNTAS: readonly Pergunta[] = [
   },
   {
     pergunta: "Também recebe vídeo?",
-    resposta: "Por enquanto, só fotos.",
+    resposta:
+      "Sim! Você pode adicionar o extra de vídeos curtos (até 15 segundos) para os convidados gravarem recados e brindes junto com as fotos.",
   },
 ];
 
@@ -172,4 +173,5 @@ export const ROTULOS_BOTAO = {
   VER_DEMONSTRACAO: "Ver a demonstração",
   VER_TELAO: "Ver o telão",
   FALAR_PARCERIA: "Falar sobre parceria",
+  ENTRAR_PARCEIRO: "Já sou parceiro (Entrar)",
 } as const;

@@ -12,6 +12,7 @@ export const SITE_LINKS = {
   DEMO_TELAO: `${SITE_CONFIG.APP_URL}/telao/demo`,
   ADMIN_LOGIN: `${SITE_CONFIG.APP_URL}/admin/login`,
   PARCEIRO_PORTAL: `${SITE_CONFIG.APP_URL}/parceiro`,
+  PARCEIRO_LOGIN: `${SITE_CONFIG.APP_URL}/parceiro/login`,
 } as const;
 
 export const SECTION_IDS = {
@@ -121,6 +122,16 @@ export const CATALOGO_FALLBACK: CatalogoPublicoDto = {
       efeito_tipo: "LIBERAR_TELAO",
       efeito_valor: 1,
       ordem: 4,
+    },
+    {
+      id: "extra-videos",
+      slug: "videos-curtos",
+      nome: "Envio de Vídeos Curtos (15s)",
+      descricao: "Permita que os convidados enviem também vídeos curtos de até 15 segundos para o álbum e telão.",
+      preco_centavos: 2900,
+      efeito_tipo: "LIBERAR_VIDEO",
+      efeito_valor: 15,
+      ordem: 5,
     },
   ],
   temas: [
