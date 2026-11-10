@@ -1,5 +1,6 @@
 ---
 import { ROTULOS_BOTAO } from "@/constants/copy";
+import { NOME_MARCA } from "@/constants/site.config";
 import {
   SECTION_IDS,
   SITE_LINKS,
@@ -30,9 +31,9 @@ const links = [
 <footer class="bg-ameixa py-12 text-white/70">
   <div class="container flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
     <div>
-      <p class="font-display text-2xl font-extrabold text-white">Álbum QR Festa</p>
+      <p class="font-display text-2xl font-extrabold text-white">{NOME_MARCA}</p>
       <p class="mt-2 max-w-xs text-sm">As fotos da festa, tiradas por quem estava lá.</p>
-      <p class="mt-6 text-xs text-white/50">© {anoAtual} Álbum QR Festa</p>
+      <p class="mt-6 text-xs text-white/50">© {anoAtual} {NOME_MARCA}</p>
     </div>
     <nav aria-label="Rodapé" class="flex flex-wrap gap-x-6 gap-y-3 text-sm">
       {links.map((link) => (

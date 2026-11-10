@@ -9,7 +9,7 @@ import "@/styles/global.css";
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
-import { WHATSAPP_MENSAGENS, gerarLinkWhatsapp } from "@/constants/site.config";
+import { NOME_MARCA, WHATSAPP_MENSAGENS, gerarLinkWhatsapp } from "@/constants/site.config";
 
 interface Props {
   title?: string;
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const {
-  title = "Álbum QR Festa: seus convidados fotografam, a festa inteira vê",
+  title = `${NOME_MARCA}: seus convidados fotografam, a festa inteira vê`,
   description = "Os convidados escaneiam um QR Code, tiram foto com a moldura do tema da festa e ela aparece no mural e no telão na hora. Sem app e sem cadastro. A partir de R$ 49 por festa.",
 } = Astro.props;
 
