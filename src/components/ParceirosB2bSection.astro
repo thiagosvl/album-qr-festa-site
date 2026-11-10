@@ -8,6 +8,7 @@ import {
   gerarLinkWhatsapp,
 } from "@/constants/site.config";
 import { ROTULOS_BOTAO } from "@/constants/copy";
+import { NOME_MARCA } from "@/constants/site.config";
 import type { CatalogoPlanoB2b } from "@/types/catalogo.types";
 
 interface Props {
@@ -25,7 +26,7 @@ const linkParceria = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.PARCERIA);
         Buffet, fotógrafo ou decorador? Ofereça o álbum nas festas que você já atende.
       </h2>
       <p class="mt-5 max-w-md text-[17px] leading-relaxed text-white/75">
-        Você assina um plano mensal com créditos, cria o álbum de cada cliente e entrega mais uma lembrança no seu serviço. O álbum usa a cor da sua marca, e a marca Álbum QR Festa aparece num cantinho.
+        Você assina um plano mensal com créditos, cria o álbum de cada cliente e entrega mais uma lembrança no seu serviço. O álbum usa a cor da sua marca, e a marca {NOME_MARCA} aparece num cantinho.
       </p>
       <div class="mt-8 flex flex-wrap items-center gap-4">
         <a href={linkParceria} target="_blank" rel="noopener noreferrer" class="botao-whatsapp">

@@ -1,5 +1,7 @@
 import type { CatalogoPublicoDto } from "@/types/catalogo.types";
 
+export const NOME_MARCA = "Festalgia" as const;
+
 export const SITE_CONFIG = {
   API_URL: import.meta.env.PUBLIC_API_URL || "http://localhost:3005",
   APP_URL: import.meta.env.PUBLIC_APP_URL || "http://localhost:5173",
@@ -27,11 +29,11 @@ export const SECTION_IDS = {
 
 export const WHATSAPP_MENSAGENS = {
   GERAL:
-    "Olá! Vi o site do Álbum QR Festa e quero criar o álbum para a minha festa.",
+    `Olá! Vi o site da ${NOME_MARCA} e quero criar o álbum para a minha festa.`,
   PARCERIA:
-    "Olá! Sou de buffet, fotografia ou decoração e quero saber como oferecer o Álbum QR Festa aos meus clientes.",
+    `Olá! Sou de buffet, fotografia ou decoração e quero saber como oferecer a ${NOME_MARCA} aos meus clientes.`,
   TEMA_SOB_MEDIDA:
-    "Olá! Quero um tema sob medida para a minha festa no Álbum QR Festa.",
+    `Olá! Quero um tema sob medida para a minha festa na ${NOME_MARCA}.`,
 } as const;
 
 export function gerarLinkWhatsapp(mensagem: string): string {

@@ -1,6 +1,6 @@
 ---
 import { Check, Minus, MoveHorizontal, X } from "lucide-astro";
-import { SECTION_IDS } from "@/constants/site.config";
+import { NOME_MARCA, SECTION_IDS } from "@/constants/site.config";
 import {
   COMPARATIVO_LINHAS,
   ComparativoValor,
@@ -22,7 +22,7 @@ const iconePorValor = {
 const colunas = [
   { chave: "grupoWhatsapp", rotulo: "Grupo do WhatsApp", destaque: false },
   { chave: "fotografo", rotulo: "Só o fotógrafo", destaque: false },
-  { chave: "album", rotulo: "Álbum QR Festa", destaque: true },
+  { chave: "album", rotulo: NOME_MARCA, destaque: true },
 ] as const;
 ---
 
