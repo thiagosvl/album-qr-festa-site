@@ -21,6 +21,7 @@ const catalogo = await obterCatalogoSite();
   <RecursosSection pacotes={catalogo.pacotes_b2c} />
   <VitrineTemasSection temas={catalogo.temas} />
   <PacotesPrecosSection
+    produtos={catalogo.produtos_b2c ?? []}
     pacotes={catalogo.pacotes_b2c}
     extras={catalogo.extras_b2c}
   />

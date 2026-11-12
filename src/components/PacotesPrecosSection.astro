@@ -1,8 +1,9 @@
 ---
-import { Check, Plus } from "lucide-astro";
+import { Check, ExternalLink, Plus } from "lucide-astro";
 import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
 import {
   SECTION_IDS,
+  SITE_LINKS,
   formatarMoedaCentavos,
   gerarLinkWhatsapp,
 } from "@/constants/site.config";
@@ -10,14 +11,17 @@ import { FESTA_PACOTE_TIPO } from "@/types/catalogo.types";
 import type {
   CatalogoExtraB2c,
   CatalogoPacoteB2c,
+  CatalogoProdutoB2c,
 } from "@/types/catalogo.types";
 
 interface Props {
+  produtos?: CatalogoProdutoB2c[];
   pacotes: CatalogoPacoteB2c[];
   extras: CatalogoExtraB2c[];
 }
 
-const { pacotes, extras } = Astro.props;
+const { produtos = [], pacotes, extras } = Astro.props;
+const prodConvite = produtos.find((p) => p.codigo_modulo === "CONVITE");
 
 function listarBeneficios(pacote: CatalogoPacoteB2c): string[] {
   return [
@@ -97,6 +101,75 @@ function listarBeneficios(pacote: CatalogoPacoteB2c): string[] {
         );
       })}
     </div>
+
+    {prodConvite && (
+      <div class="mt-8 rounded-card bg-white p-8 text-ameixa shadow-card sm:p-9">
+        <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-center">
+          <div class="max-w-2xl">
+            <span class="inline-block rounded-full bg-uva-claro px-3 py-1 text-xs font-bold text-uva">
+              Contrate avulso ou junto com a Galeria QR Code
+            </span>
+            <h3 class="mt-3 text-3xl font-extrabold">
+              {prodConvite.nome_exibicao}
+            </h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-ameixa-suave">
+              {prodConvite.descricao}
+            </p>
+            <ul class="mt-4 grid gap-2 text-sm sm:grid-cols-2">
+              <li class="flex items-center gap-2">
+                <Check class="h-4 w-4 shrink-0 text-uva" />
+                <span>Envelope 3D animado com música opcional</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <Check class="h-4 w-4 shrink-0 text-uva" />
+                <span>Botões diretos para Google Maps e Waze</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <Check class="h-4 w-4 shrink-0 text-uva" />
+                <span>Sugestões de presentes e tamanhos</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <Check class="h-4 w-4 shrink-0 text-uva" />
+                <span>Painel de confirmados (adultos, crianças e famílias)</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="shrink-0 lg:text-right">
+            {prodConvite.preco_ancora_centavos && (
+              <p class="text-sm text-ameixa-suave line-through">
+                {formatarMoedaCentavos(prodConvite.preco_ancora_centavos)}
+              </p>
+            )}
+            <p class="font-display text-5xl font-extrabold leading-none text-ameixa">
+              {formatarMoedaCentavos(prodConvite.preco_centavos)}
+            </p>
+            <div class="mt-5 flex flex-col gap-2.5 sm:flex-row lg:justify-end">
+              <a
+                href={SITE_LINKS.DEMO_CONVITE}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-ameixa/20 px-5 text-sm font-bold text-ameixa transition hover:border-ameixa"
+              >
+                <ExternalLink class="h-4 w-4" />
+                Ver Convite Demo
+              </a>
+              <a
+                href={gerarLinkWhatsapp(
+                  `Olá! Quero contratar o ${prodConvite.nome_exibicao} (${formatarMoedaCentavos(prodConvite.preco_centavos)}) para a minha festa.`
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="botao-whatsapp"
+              >
+                <WhatsAppIcon />
+                Quero o Convite Interativo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
 
     {extras.length > 0 && (
       <div class="mt-12 rounded-card bg-white/60 p-7 sm:p-9">

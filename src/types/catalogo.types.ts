@@ -1,4 +1,5 @@
 export type FestaPacoteTipoEnum = "BASICO" | "COMPLETO";
+export type FestaCodigoModuloEnum = "GALERIA" | "CONVITE";
 export type FestaCategoriaTemaEnum =
   | "INFANTIL"
   | "QUINZE_ANOS"
@@ -11,6 +12,21 @@ export type FestaEfeitoExtraEnum =
   | "LIBERAR_VIDEO"
   | "LIBERAR_TELAO"
   | "ENTREGAVEL_MANUAL";
+
+export interface CatalogoProdutoB2c {
+  id: string;
+  codigo_modulo: FestaCodigoModuloEnum;
+  slug: string;
+  nome_exibicao: string;
+  descricao: string | null;
+  preco_centavos: number;
+  preco_ancora_centavos: number | null;
+  custo_creditos_b2b: number;
+  disponivel_b2b: boolean;
+  limite_molduras_base: number;
+  dias_validade_base: number;
+  ordem: number;
+}
 
 export interface CatalogoPacoteB2c {
   id: string;
@@ -64,6 +80,7 @@ export interface CatalogoPlanoB2b {
 }
 
 export interface CatalogoPublicoDto {
+  produtos_b2c?: CatalogoProdutoB2c[];
   pacotes_b2c: CatalogoPacoteB2c[];
   extras_b2c: CatalogoExtraB2c[];
   temas: CatalogoTema[];

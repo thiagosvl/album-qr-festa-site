@@ -12,6 +12,7 @@ export const SITE_CONFIG = {
 
 export const SITE_LINKS = {
   DEMO_CONVIDADO: `${SITE_CONFIG.APP_URL}/e/demo`,
+  DEMO_CONVITE: `${SITE_CONFIG.APP_URL}/convite/demo`,
   DEMO_TELAO: `${SITE_CONFIG.APP_URL}/telao/demo`,
   ADMIN_LOGIN: `${SITE_CONFIG.APP_URL}/admin/login`,
   PARCEIRO_PORTAL: `${SITE_CONFIG.APP_URL}/parceiro`,
@@ -52,6 +53,38 @@ export function formatarMoedaCentavos(centavos: number): string {
 }
 
 export const CATALOGO_FALLBACK: CatalogoPublicoDto = {
+  produtos_b2c: [
+    {
+      id: "prod-galeria",
+      codigo_modulo: "GALERIA",
+      slug: "galeria-qr-code",
+      nome_exibicao: "Galeria QR Code ao Vivo",
+      descricao:
+        "Álbum colaborativo por QR Code com molduras no tema da festa, fotos ilimitadas e download em ZIP.",
+      preco_centavos: 9700,
+      preco_ancora_centavos: 14700,
+      custo_creditos_b2b: 1,
+      disponivel_b2b: true,
+      limite_molduras_base: 1,
+      dias_validade_base: 90,
+      ordem: 1,
+    },
+    {
+      id: "prod-convite",
+      codigo_modulo: "CONVITE",
+      slug: "convite-interativo-rsvp",
+      nome_exibicao: "Convite Interativo + RSVP",
+      descricao:
+        "Convite animado com abertura 3D, música opcional, contagem regressiva, Google Maps/Waze, dicas de presentes e confirmação de presença em tempo real.",
+      preco_centavos: 8990,
+      preco_ancora_centavos: 12990,
+      custo_creditos_b2b: 1,
+      disponivel_b2b: true,
+      limite_molduras_base: 1,
+      dias_validade_base: 90,
+      ordem: 2,
+    },
+  ],
   pacotes_b2c: [
     {
       id: "fallback-basico",
