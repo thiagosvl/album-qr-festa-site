@@ -71,6 +71,25 @@ shadcn/ui is a monochromatic design-system workshop: pure white canvas, soft war
 - **Card padding:** 20px
 - **Element gap:** 8px
 
+## Logo
+
+O símbolo é um "f" minúsculo de traço grosso e arredondado, com o braço levantado segurando uma faísca dourada. O nome vai sempre em minúsculo (**festalgia**), com uma estrelinha dourada no pingo do "i".
+
+| Cor do logo | Valor | Uso |
+|-------------|-------|-----|
+| Roxo ameixa | `#54074B` | "f" e nome sobre fundo claro |
+| Dourado | `#F7AF1F` | Faísca e estrelinha, nunca o nome |
+| Lilás claro | `#EFE6F6` | Fundo do ícone de app e do avatar social |
+
+As cores do logo são só da marca. A interface continua nos tokens da seção Tokens — Colors.
+
+- **Arquivos:** `public/marca/logo-horizontal.svg` (fundo claro), `public/marca/logo-horizontal-fundo-escuro.svg` (rodapé e fundos escuros) e `public/marca/logo-email.png` (e-mails, usado pelo backend). Defina só a altura; a largura é automática.
+- **Fundo escuro** (sidebar, telão, rodapé): versão branca com faísca dourada.
+- **Sobre foto:** use a versão toda branca.
+- **Tamanho mínimo:** 24 px de altura no logo horizontal e 16 px no ícone. O favicon usa o ícone ampliado e só com a faísca grande.
+- **Respiro:** pelo menos metade da altura do "f" em volta do logo.
+- **Não fazer:** recolorir, esticar, aplicar o "f" branco dentro de círculo ou quadrado de cor sólida (lembra logo de rede social), nem trocar a faísca por outro símbolo.
+
 ## Components
 
 ### Primary Filled Button

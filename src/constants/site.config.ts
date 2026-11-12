@@ -3,6 +3,7 @@ import type { CatalogoPublicoDto } from "@/types/catalogo.types";
 export const NOME_MARCA = "Festalgia" as const;
 
 export const SITE_CONFIG = {
+  SITE_URL: import.meta.env.PUBLIC_SITE_URL || "https://festalgia.com.br",
   API_URL: import.meta.env.PUBLIC_API_URL || "http://localhost:3005",
   APP_URL: import.meta.env.PUBLIC_APP_URL || "http://localhost:5173",
   WHATSAPP_COMERCIAL:

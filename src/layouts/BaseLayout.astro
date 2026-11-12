@@ -9,7 +9,7 @@ import "@/styles/global.css";
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 import WhatsAppIcon from "@/components/WhatsAppIcon.astro";
-import { NOME_MARCA, WHATSAPP_MENSAGENS, gerarLinkWhatsapp } from "@/constants/site.config";
+import { NOME_MARCA, SITE_CONFIG, WHATSAPP_MENSAGENS, gerarLinkWhatsapp } from "@/constants/site.config";
 
 interface Props {
   title?: string;
@@ -22,6 +22,7 @@ const {
 } = Astro.props;
 
 const whatsappFlutuante = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.GERAL);
+const imagemCompartilhamento = `${SITE_CONFIG.SITE_URL}/og-image.png`;
 ---
 
 <!doctype html>
@@ -36,7 +37,17 @@ const whatsappFlutuante = gerarLinkWhatsapp(WHATSAPP_MENSAGENS.GERAL);
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={NOME_MARCA} />
+    <meta property="og:image" content={imagemCompartilhamento} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`Logo da ${NOME_MARCA}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={imagemCompartilhamento} />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body class="flex min-h-screen flex-col">
     <Navbar />
