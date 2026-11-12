@@ -21,8 +21,8 @@ export default {
       },
       colors: {
         ameixa: {
-          DEFAULT: "#1c0f2e",
-          suave: "#4b3a63",
+          DEFAULT: "#240A21",
+          suave: "#664763",
         },
         whatsapp: {
           DEFAULT: "#25d366",
@@ -30,16 +30,16 @@ export default {
         },
         algodao: "#ffe4f0",
         uva: {
-          DEFAULT: "#7c3aed",
-          escuro: "#5b21b6",
-          profundo: "#4c1d95",
-          claro: "#ede4ff",
+          DEFAULT: "#54074B",
+          escuro: "#390533",
+          profundo: "#260322",
+          claro: "#EFE6F6",
         },
         rosa: {
           DEFAULT: "#e6007e",
           vivo: "#ff4f9a",
         },
-        gema: "#ffd23f",
+        gema: "#F7AF1F",
         papel: "#fdfbff",
       },
       borderRadius: {
@@ -47,8 +47,8 @@ export default {
         button: "999px",
       },
       boxShadow: {
-        palco: "0 40px 80px -30px rgba(28, 15, 46, 0.45)",
-        suave: "0 12px 30px -12px rgba(28, 15, 46, 0.25)",
+        palco: "0 40px 80px -30px rgba(36, 10, 33, 0.45)",
+        suave: "0 12px 30px -12px rgba(36, 10, 33, 0.25)",
       },
       keyframes: {
         pop: {

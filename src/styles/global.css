@@ -25,7 +25,7 @@
   }
 
   :focus-visible {
-    outline: 3px solid #7c3aed;
+    outline: 3px solid #54074B;
     outline-offset: 3px;
     border-radius: 8px;
   }
@@ -36,7 +36,7 @@
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(124, 58, 237, 0.28) transparent;
+    scrollbar-color: rgba(84, 7, 75, 0.28) transparent;
   }
 
   *::-webkit-scrollbar {
@@ -55,14 +55,14 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: rgba(124, 58, 237, 0.26);
+    background-color: rgba(84, 7, 75, 0.26);
     border-radius: 9999px;
     border: 2px solid transparent;
     background-clip: padding-box;
   }
 
   *::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(124, 58, 237, 0.48);
+    background-color: rgba(84, 7, 75, 0.48);
   }
 }
 

@@ -18,9 +18,9 @@ shadcn/ui is a monochromatic design-system workshop: pure white canvas, soft war
 | Ink Soft | `#171717` | `--color-ink-soft` | Secondary text on light surfaces |
 | Mid Gray | `#737373` | `--color-mid-gray` | Muted body text, placeholder text, helper labels, icon fills at rest |
 | Hairline | `#e5e5e5` | `--color-hairline` | Borders, input outlines, card edges, badge outlines |
-| Primary | `#7c3aed` | `--color-primary` | Primary actions, CTA buttons, active state accents (Festalgia Violet, hover `#6d28d9`) |
+| Primary | `#54074B` | `--color-primary` | Primary actions, CTA buttons, active state accents (Festalgia Plum, the logo purple, hover `#390533`) |
 | Accent Rose | `#e11d48` | `--color-accent-rose` | Secondary festive highlight for badges, demo tags, and celebratory accents |
-| Midnight Plum | `#130d1e` | `--color-midnight-plum` | Official Festalgia dark anchor for desktop and mobile navigation sidebars |
+| Midnight Plum | `#240A21` | `--color-midnight-plum` | Official Festalgia dark anchor for desktop and mobile navigation sidebars |
 | Ember | `#e7000b` | `--color-ember` | Red decorative accent for destructive actions and error states |
 
 ## Tokens — Typography
@@ -81,7 +81,7 @@ O símbolo é um "f" minúsculo de traço grosso e arredondado, com o braço lev
 | Dourado | `#F7AF1F` | Faísca e estrelinha, nunca o nome |
 | Lilás claro | `#EFE6F6` | Fundo do ícone de app e do avatar social |
 
-As cores do logo são só da marca. A interface continua nos tokens da seção Tokens — Colors.
+A interface usa o mesmo roxo do logo (Primary em Tokens — Colors). O dourado do logo é o token `gema` do Tailwind.
 
 - **Arquivos:** `public/marca/logo-horizontal.svg` (fundo claro), `public/marca/logo-horizontal-fundo-escuro.svg` (rodapé e fundos escuros) e `public/marca/logo-email.png` (e-mails, usado pelo backend). Defina só a altura; a largura é automática.
 - **Fundo escuro** (sidebar, telão, rodapé): versão branca com faísca dourada.
