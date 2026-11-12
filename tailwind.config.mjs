@@ -28,16 +28,12 @@ export default {
           DEFAULT: "#25d366",
           escuro: "#1ebe5a",
         },
-        algodao: "#ffe4f0",
+        algodao: "#F6EFF8",
         uva: {
           DEFAULT: "#54074B",
           escuro: "#390533",
           profundo: "#260322",
           claro: "#EFE6F6",
-        },
-        rosa: {
-          DEFAULT: "#e6007e",
-          vivo: "#ff4f9a",
         },
         gema: "#F7AF1F",
         papel: "#fdfbff",

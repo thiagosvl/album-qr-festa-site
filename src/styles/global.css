@@ -87,8 +87,8 @@
     @apply botao bg-whatsapp text-white hover:bg-whatsapp-escuro;
   }
 
-  .botao-rosa {
-    @apply botao bg-rosa-vivo text-ameixa;
+  .botao-dourado {
+    @apply botao bg-gema text-ameixa;
   }
 
   .ticket {
